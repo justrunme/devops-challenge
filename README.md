@@ -1,5 +1,7 @@
 # DevOps Challenge – Monitoring-Stack
 
+![CI](https://github.com/justrunme/devops-challenge/actions/workflows/ci.yml/badge.svg)
+
 ## 🚀 Schnellstart
 
 ### 1. Repository klonen

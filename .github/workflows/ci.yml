@@ -29,3 +29,41 @@ jobs:
         run: |
           cd spring-app
           ./mvnw test
+
+  docker-stack-up:
+    runs-on: ubuntu-latest
+    needs: build-and-test
+    services:
+      docker:
+        image: docker:20.10.24-dind
+        privileged: true
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Docker Compose
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y docker-compose
+
+      - name: Build and run Docker Compose stack
+        run: |
+          docker-compose up -d
+          sleep 30
+
+      - name: Check Spring Boot health
+        run: |
+          curl --fail http://localhost:8080/actuator/health
+
+      - name: Check Prometheus is up
+        run: |
+          curl --fail http://localhost:9090/-/healthy
+
+      - name: Check Grafana is up
+        run: |
+          curl --fail http://localhost:3000/api/health
+
+      - name: Stop stack
+        if: always()
+        run: docker-compose down

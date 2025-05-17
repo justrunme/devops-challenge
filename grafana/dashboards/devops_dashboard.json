@@ -1,0 +1,51 @@
+{
+  "annotations": {
+    "list": []
+  },
+  "panels": [
+    {
+      "datasource": "${DS_PROMETHEUS}",
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {"h":8,"w":12,"x":0,"y":0},
+      "id": 1,
+      "options": {
+        "legend": { "displayMode": "list" }
+      },
+      "targets": [
+        {
+          "expr": "custom_random_metric",
+          "legendFormat": "Random Metric",
+          "interval": ""
+        }
+      ],
+      "title": "Custom Random Metric",
+      "type": "timeseries"
+    },
+    {
+      "datasource": "${DS_PROMETHEUS}",
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {"h":8,"w":12,"x":12,"y":0},
+      "id": 2,
+      "options": { "legend": { "displayMode": "list" } },
+      "targets": [
+        {
+          "expr": "jvm_memory_used_bytes",
+          "legendFormat": "JVM Used Memory",
+          "interval": ""
+        }
+      ],
+      "title": "JVM Used Memory",
+      "type": "timeseries"
+    }
+  ],
+  "schemaVersion": 30,
+  "title": "DevOps Challenge Dashboard",
+  "version": 1,
+  "refresh": "10s"
+}

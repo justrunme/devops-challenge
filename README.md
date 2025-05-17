@@ -53,3 +53,22 @@ docker-compose down
 * Skript prüft die Erreichbarkeit der Services (mit Pausen, wenn nötig).
 * **Dashboards und Data Sources** werden direkt verknüpft.
 * **Ready to use** für Monitoring, Tests oder Demo.
+
+---
+
+## 🧪 Automatisierte Tests (GitHub Actions)
+
+Dieses Repository enthält eine **vollautomatische CI-Pipeline** mit GitHub Actions:
+
+* **Baut das Spring Boot Projekt** und führt Unit Tests aus (`mvn test`).
+* **Startet den gesamten Monitoring-Stack** (`docker compose up`) in der Testumgebung.
+* **Prüft die Verfügbarkeit der benutzerdefinierten Prometheus-Metrik** `custom_random_metric` – es wird automatisch überprüft, ob die Metrik nach dem Start tatsächlich geliefert wird.
+* Nach dem Testlauf werden alle Container wieder sauber gestoppt.
+
+> Das garantiert, dass das Monitoring-Setup **immer funktioniert** und die wichtigsten Metriken direkt nach dem Start bereitstehen.
+
+---
+
+**Beispiel:**
+Alle Checks werden bei jedem Push und Pull Request auf den Branch `main` automatisch durchlaufen.
+

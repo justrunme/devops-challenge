@@ -23,6 +23,15 @@ cd devops-challenge
 
 ---
 
+⚡️ Alternativer Start direkt mit Docker Compose
+Du kannst den Stack auch direkt mit Docker Compose starten — ohne Skript:
+
+docker compose up -d
+Danach ggf. etwas warten, bis alle Services bereit sind.
+Stoppen wie gewohnt mit:
+docker compose down
+
+
 ### 3. Was passiert automatisch?
 
 * **Dashboards werden provisioniert** – kein manuelles Importieren mehr nötig.

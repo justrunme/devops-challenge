@@ -62,10 +62,14 @@ docker-compose down
 
 Dieses Repository enthält eine **vollautomatische CI-Pipeline** mit GitHub Actions:
 
-* **Baut das Spring Boot Projekt** und führt Unit Tests aus (`mvn test`).
-* **Startet den gesamten Monitoring-Stack** (`docker compose up`) in der Testumgebung.
-* **Prüft die Verfügbarkeit der benutzerdefinierten Prometheus-Metrik** `custom_random_metric` – es wird automatisch überprüft, ob die Metrik nach dem Start tatsächlich geliefert wird.
-* Nach dem Testlauf werden alle Container wieder sauber gestoppt.
+## 🧪 Was prüft die CI?
+
+* Klonen, Bauen und Testen der Spring Boot App
+* Start des kompletten Monitoring-Stacks **über das User-Skript** `start.sh`
+* Wartet automatisch auf alle Dienste (Spring, Prometheus, Grafana)
+* Überprüft die Verfügbarkeit der custom Prometheus-Metrik
+* Stoppt alles nach dem Test
+
 
 > Das garantiert, dass das Monitoring-Setup **immer funktioniert** und die wichtigsten Metriken direkt nach dem Start bereitstehen.
 

@@ -9,6 +9,7 @@
 ```bash
 git clone git@github.com:justrunme/devops-challenge.git
 cd devops-challenge
+chmod +x start.sh
 ```
 
 ---

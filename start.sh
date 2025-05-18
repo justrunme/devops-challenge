@@ -20,8 +20,8 @@ mvn clean package -DskipTests
 cd ..
 
 # Docker Compose starten und bauen
-echo "===> Starte docker-compose..."
-docker-compose up -d --build
+echo "===> Starte docker compose..."
+docker compose up -d --build
 
 # Funktion: Warte auf HTTP-Service (max. 15x 2 Sekunden)
 wait_for_service() {

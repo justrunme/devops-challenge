@@ -4,6 +4,10 @@
 
 ## 🚀 Schnellstart
 
+### Voraussetzungen
+
+- Docker und Docker Compose müssen installiert sein (siehe oben).
+
 ### 1. Repository klonen
 
 ```bash
